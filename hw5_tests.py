@@ -40,9 +40,9 @@ class TestCard(unittest.TestCase):
 
         '''
         c = hw5_cards.Card(0, 12)
-        X = Y = c.rank_name
-        self.assertEqual(c.rank, 12)
-        self.assertEqual(c.rank_name, "Queen")
+        X = c.rank_name
+        Y = "Queen"
+        self.assertEqual(X,Y)
         return X, Y
     
     def test_q2(self):
@@ -58,9 +58,9 @@ class TestCard(unittest.TestCase):
 
         '''
         c = hw5_cards.Card(1, 12)
-        X = Y = c.suit_name
-        self.assertEqual(c.suit, 1)
-        self.assertEqual(c.suit_name, "Clubs")
+        X = c.suit_name
+        Y = "Clubs"
+        self.assertEqual(X,Y)
         return X, Y   
     
 
@@ -78,8 +78,9 @@ class TestCard(unittest.TestCase):
 
         '''
         c = hw5_cards.Card(3,13)
-        X = Y = c.__str__()
-        self.assertEqual(c.__str__(), "King of Spades")
+        X = c.__str__()
+        Y = "King of Spades"
+        self.assertEqual(X,Y)
         return X, Y
     
     def test_q4(self):
@@ -95,8 +96,9 @@ class TestCard(unittest.TestCase):
 
         '''
         deck = hw5_cards.Deck()
-        X = Y = len(deck.cards)
-        self.assertEqual(len(deck.cards),52)
+        X = len(deck.cards)
+        Y = 52
+        self.assertEqual(X,52)
         return X, Y
 
     def test_q5(self):
@@ -112,9 +114,9 @@ class TestCard(unittest.TestCase):
 
         '''
         deck = hw5_cards.Deck()
-        c = deck.deal_card()   
-        X = Y = c
-        self.assertIsInstance(c, hw5_cards.Card)
+        X = deck.deal_card()   
+        Y = hw5_cards.Card
+        self.assertIsInstance(X,Y)
         return X, Y
     
     def test_q6(self):
@@ -132,8 +134,9 @@ class TestCard(unittest.TestCase):
         '''
         deck = hw5_cards.Deck()
         c = deck.deal_card()   
-        X = Y = len(deck.cards)
-        self.assertEqual(len(deck.cards),51)
+        X = len(deck.cards)
+        Y = 51
+        self.assertEqual(X,Y)
         return X, Y
     
 
@@ -156,9 +159,8 @@ class TestCard(unittest.TestCase):
         l1 = len(deck.cards)
         Y = l1 +1
         deck.replace_card(c1)
-        l2 = len(deck.cards)
-        Z = l2
-        self.assertEqual(l1 + 1, l2)
+        Z = len(deck.cards)
+        self.assertEqual(X,Y,Z)
         return X, Y, Z
     
     def test_q8(self):
@@ -176,12 +178,10 @@ class TestCard(unittest.TestCase):
         '''
         deck = hw5_cards.Deck()
         for i in deck.cards:
-            l1 = len(deck.cards)
-            X = l1
+            X = len(deck.cards)
             deck.replace_card(i)
-            l2 = len(deck.cards)
-            Y = l2
-            self.assertEqual(l1, l2)
+            Y = len(deck.cards)
+            self.assertEqual(X,Y)
         return X, Y
 
 
